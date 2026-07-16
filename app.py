@@ -87,7 +87,7 @@ def saveblacksample():
         try:
             filename = secure_filename(file.filename)
             file.save(os.path.join(BLACKLISTFILEFOLDER, filename))
-            return jsonify({"Result": "Save Sample to BlackList Sucessful"})
+            return jsonify({"Result": "Save Sample to BlackList Successful"})
         except Exception as e :
             return jsonify({"Warning": "Save Failed"})
     elif request.method == 'GET':
@@ -109,7 +109,7 @@ def saveblackdirsample():
             # file.save(os.path.join(dirpath, filename))
             tmpres = {
                     'filename': file.filename,
-                    'stat': 'Upload Sucessful' if file.save(os.path.join(dirpath, filename)) is None else 'Upload Failed'
+                    'stat': 'Upload Successful' if file.save(os.path.join(dirpath, filename)) is None else 'Upload Failed'
                 }
             res.append(tmpres)
         return jsonify({"Result": res})
@@ -126,7 +126,7 @@ def savewhitesample():
         try:
             filename = secure_filename(file.filename)
             file.save(os.path.join(WHITELISTFILEFOLDER, filename))
-            return jsonify({"Result": "Save Sample to WhiteList Sucessful"})
+            return jsonify({"Result": "Save Sample to WhiteList Successful"})
         except Exception as e :
             print(e)
             return jsonify({"Warning": "Save Failed"})
@@ -150,7 +150,7 @@ def savewhitedirsample():
 
             tmpres = {
                 'filename': file.filename,
-                'stat': 'Upload Sucessful' if file.save(os.path.join(dirpath, filename)) is None else 'Upload Failed'
+                'stat': 'Upload Successful' if file.save(os.path.join(dirpath, filename)) is None else 'Upload Failed'
             }
             res.append(tmpres)
         return jsonify({"Result": res})
